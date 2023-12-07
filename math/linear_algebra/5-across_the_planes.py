@@ -10,8 +10,10 @@ def add_matrices2D(mat1, mat2):
     Parameters:
     temp: temporary list to save the new sub lists each time
     """
-    if shape(mat1) != shape(mat2) or mat1 == []:
+    if shape(mat1) != shape(mat2):
         return(None)
+    if mat1 == []:
+        return([])
     matrix_result = []
     for j in range(len(mat1)):
         temp = []
