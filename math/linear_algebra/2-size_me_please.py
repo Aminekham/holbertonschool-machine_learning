@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 def matrix_shape(matrix):
+    """
+    This module represents a very simple and accurate way to know the shape of a certain matrix with whatever dimensionality
+    """
     temp = matrix
     shape = []
     shape.append(len(temp))
