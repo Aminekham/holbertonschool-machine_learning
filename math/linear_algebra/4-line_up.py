@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ This is a function to add arrays """
-shape = __import__ ('2-size_me_please').matrix_shape
+shape = __import__('2-size_me_please').matrix_shape
+
 
 def add_arrays(arr1, arr2):
     """
