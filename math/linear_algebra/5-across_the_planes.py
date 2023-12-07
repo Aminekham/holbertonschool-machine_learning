@@ -5,6 +5,11 @@ shape = __import__('2-size_me_please').matrix_shape
 
 
 def add_matrices2D(mat1, mat2):
+    """
+    A 2Dmatrix adding function 
+    Parameters:
+    temp: temporary list to save the new sub lists each time
+    """
     if shape(mat1) != shape(mat2):
         return(None)
     matrix_result = []
