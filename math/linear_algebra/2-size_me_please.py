@@ -7,8 +7,8 @@ def matrix_shape(matrix):
     - matrix (list): The input matrix.
 
     Returns:
-    - list: A list representing the shape of the matrix. 
-                Each element in the list
+    - list: A list representing the shape of
+            the matrix. Each element in the list
             corresponds to the size of a dimension.
     """
     temp = matrix
