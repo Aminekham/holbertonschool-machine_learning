@@ -4,7 +4,7 @@ def matrix_shape(matrix):
     shape = []
     shape.append(len(temp))
     for i in range(len(temp)):
-        if type(temp[i]) != list:
+        if type(temp[0]) != list:
             break
         shape.append(len(temp[i]))
         temp = temp[i]
