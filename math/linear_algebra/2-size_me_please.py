@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+""" This my shape getter function """
+
+
 def matrix_shape(matrix):
     """
     Get the shape of a matrix with any dimensionality.
