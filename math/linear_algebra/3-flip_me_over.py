@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """ This my tranpose function """
 
+
 def matrix_transpose(matrix):
-    """ parameters:
-            matrix_tranpose: save the final version of each 
+    """parameters:
+            matrix_tranpose: save the final version of each
             column in the matrix
             temp: get the elements in each dimension
                     in a certain position needed
