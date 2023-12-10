@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 
+"""
 method to concatenate in numpy
 """
 import numpy as np
