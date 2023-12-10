@@ -10,7 +10,7 @@ def mat_mul(mat1, mat2):
     1-itterate through the columns of the first matrix
     2- itterate through the rows of the second matrix
     3- itterate through the elemnts of the columns of the first matrix
-    and the column of the second matrix to get the multiplication result
+    and the rows of the second matrix to get the multiplication result
     """
     if shape(mat1)[1] != shape(mat2)[0]:
         return None
