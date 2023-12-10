@@ -3,7 +3,7 @@
 
 
 def cat_matrices2D(mat1, mat2, axis=0):
-    """ 
+    """
     This is a function that concatinates two 2Dmatrixs
     """
     result = []
@@ -18,5 +18,4 @@ def cat_matrices2D(mat1, mat2, axis=0):
         for i in range(len(mat1)):
             result.append(mat1[i] + mat2[i])
         return result
-
     return(result)
