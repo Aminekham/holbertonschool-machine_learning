@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-""" concatinate two arrays """
+""" concatinate two matrixs """
 
 
 def cat_matrices2D(mat1, mat2, axis=0):
-    """ """
+    """ 
+    This is a function that concatinates two 2Dmatrixs
+    """
     result = []
     if axis == 0 and len(mat1[0]) != len(mat2[0]):
         return None
