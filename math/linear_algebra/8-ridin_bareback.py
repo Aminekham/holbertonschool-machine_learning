@@ -4,7 +4,7 @@ shape = __import__('2-size_me_please').matrix_shape
 
 
 def mat_mul(mat1, mat2):
-    """ 
+    """
     multiply two 2D matrixs
     Process:
     1-itterate through the columns of the first matrix
