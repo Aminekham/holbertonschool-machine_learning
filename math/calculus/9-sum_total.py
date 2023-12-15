@@ -3,7 +3,6 @@
 function to get the sum of i squared
 from 1 to the given n
 """
-import numpy as np
 
 
 def summation_i_squared(n):
@@ -14,5 +13,6 @@ def summation_i_squared(n):
     """
     if not isinstance(n, int) or n < 1:
         return None
-    numbers = np.arange(1, n+1)
-    return np.sum(numbers**2)
+    if n == 1:
+        return 1
+    return n**2 + summation_i_squared(n-1)
