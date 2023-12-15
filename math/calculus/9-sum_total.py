@@ -9,6 +9,6 @@ def summation_i_squared(n):
         sum: The variable storing the square of i
         each time
     """
-    if n == 0:
-        return(0)
+    if n == 1:
+        return(1)
     return(n ** 2 + summation_i_squared(n - 1))
