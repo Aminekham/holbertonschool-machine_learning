@@ -7,7 +7,7 @@ from 1 to the given n
 
 def summation_i_squared(n):
     """
-    Parameters: 
+    Parameters:
         sum: The variable storing the square of i
         each time
     """
