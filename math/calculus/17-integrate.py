@@ -16,7 +16,6 @@ def poly_integral(poly, C=0):
     integral = []
     integral.append(0)
     for i in range(len(poly)):
-        print(integral)
         integral.append(poly[i] / (i+1))
     if sum(integral) == 0:
         return [0]
