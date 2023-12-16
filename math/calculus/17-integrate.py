@@ -14,9 +14,12 @@ def poly_integral(poly, C=0):
     if not all(isinstance(coeff, (int, float)) for coeff in poly):
         return None
     integral = []
-    integral.append(0)
+    integral = [C]
+
     for i in range(len(poly)):
-        integral.append(poly[i] / (i+1))
-    if sum(integral) == 0:
-        return [0]
+        term = poly[i] / (i + 1)
+        if term.is_integer():
+            term = int(term)
+        integral.append(term)
+
     return integral
