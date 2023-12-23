@@ -38,6 +38,10 @@ class Poisson:
                / factorial(k))
 
     def cdf(self, k):
+        """
+        cdf function to give the pourcentile of
+        an event to score less than that
+        """
         k = int(k)
         if k < 0:
             return 0
