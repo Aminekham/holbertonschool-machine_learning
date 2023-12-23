@@ -29,7 +29,7 @@ class Poisson:
         k = int(k)
         if k < 0:
             return 0
-        return((2.7182818285 ** -self.lambtha * self.lambtha ** k) / factorial(k))
+        return(k)
 
 def factorial(n):
     if n == 0:
