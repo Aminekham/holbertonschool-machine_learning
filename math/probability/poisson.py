@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-
 """
 This is our main poisson class
 """
-
 
 
 class Poisson:
@@ -26,12 +24,22 @@ class Poisson:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data) / len(data))
     def pmf(self, k):
+        """
+        pmf function to calculate the probility mass function
+        of a certain success k
+        exp: telling how much in the intervale of lambtha can the k
+        event occur
+        """
         k = int(k)
         if k < 0:
             return 0
         return((2.7182818285 ** -self.lambtha * self.lambtha ** k) / factorial(k))
 
 def factorial(n):
+    """
+        needed to calculate the factorial for the pmf
+        equation
+    """
     if n == 0:
         return(1)
     return(n * factorial(n - 1))
