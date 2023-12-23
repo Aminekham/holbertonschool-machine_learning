@@ -29,9 +29,9 @@ class Poisson:
         k = int(k)
         if k < 0:
             return 0
-        return(k)
+        return((2.7182818285 ** -self.lambtha * self.lambtha ** k) / factorial(k))
 
 def factorial(n):
     if n == 0:
         return(1)
-    return(n + factorial(n - 1))
+    return(n * factorial(n - 1))
