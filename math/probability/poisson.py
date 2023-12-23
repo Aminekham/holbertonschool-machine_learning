@@ -5,6 +5,7 @@ This is our main poisson class
 """
 
 
+
 class Poisson:
     """
     creating the class to work on poisson distribution
@@ -24,3 +25,13 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data) / len(data))
+    def pmf(self, k):
+        k = int(k)
+        if k < 0:
+            return 0
+        return((2.7182818285 ** -self.lambtha * self.lambtha ** k) / factorial(k))
+
+def factorial(n):
+    if n == 0:
+        return(1)
+    return(n + factorial(n - 1))
