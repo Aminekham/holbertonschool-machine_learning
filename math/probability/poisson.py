@@ -23,6 +23,7 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data) / len(data))
+
     def pmf(self, k):
         """
         pmf function to calculate the probility mass function
@@ -33,7 +34,9 @@ class Poisson:
         k = int(k)
         if k < 0:
             return 0
-        return((2.7182818285 ** -self.lambtha * self.lambtha ** k) / factorial(k))
+        return((2.7182818285 ** -self.lambtha * self.lambtha ** k) 
+               / factorial(k))
+
 
 def factorial(n):
     """
