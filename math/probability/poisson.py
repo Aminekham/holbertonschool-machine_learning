@@ -3,13 +3,15 @@
 """
 This is our main poisson class
 """
+
+
 class Poisson:
     """
     creating the class to work on poisson distribution
     """
     def __init__(self, data=None, lambtha=1.):
         """
-        init function to check values and calculate a reasonable value for 
+        init function to check values and calculate a reasonable value for
         the poisson rate
         """
         if data is None:
@@ -22,4 +24,3 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data) / len(data))
-
