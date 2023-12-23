@@ -37,6 +37,12 @@ class Poisson:
         return((2.7182818285 ** -self.lambtha * self.lambtha ** k)
                / factorial(k))
 
+    def cdf(self, k):
+        k = int(k)
+        if k < 0:
+            return 0
+        return self.pmf(k) + self.cdf(k - 1)
+
 
 def factorial(n):
     """
