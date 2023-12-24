@@ -30,4 +30,5 @@ class Binomial:
 
             p = sum(data) / (len(data) * self.n)
             self.n = int(round(len(data) / (1 - p)))
-            self.p = p
+            self.p = sum(data) / (len(data) * self.n)
+
