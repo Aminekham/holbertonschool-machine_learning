@@ -8,7 +8,7 @@ class Exponential:
     """
     this defines the exponential class to
     understand the core concepts of
-    exponential distrubiation
+    exponential distribution
     """
     def __init__(self, data=None, lambtha=1.):
         """
