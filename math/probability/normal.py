@@ -30,8 +30,17 @@ class Normal:
             self.stddev = (sum((x - self.mean) ** 2 for x in data) / n) ** 0.5
 
     def z_score(self, x):
+        """
+        the formula of z represents the value
+        standard normal distribution
+        """
         z = (x - self.mean) / self.stddev
         return(z)
+
     def x_value(self, z):
+        """
+        getting back from the value of z
+        to the value x
+        """
         x = z * self.stddev + self.mean
         return(x)
