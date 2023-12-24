@@ -44,3 +44,11 @@ class Normal:
         """
         x = z * self.stddev + self.mean
         return(x)
+
+    def pdf(self, x):
+        """
+        determine the probability of our random variable
+        that it takes this specific value x
+        """
+        likelihood = (1 / (2 * 3.1415926536) ** 0.5) * 2.7182818285 ** ( -1/2 * ((x - self.mean)/ self.stddev) ** 2)
+        return(likelihood)
