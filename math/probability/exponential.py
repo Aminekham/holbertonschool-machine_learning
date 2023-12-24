@@ -28,7 +28,7 @@ class Exponential:
 
     def pdf(self, x):
         """
-        pdf function to search for the likelihood of a particular
+        probability distribution function to search for the likelihood of a particular
         random variable to be in a the needed range of values
         """
         if x < 0:
@@ -36,6 +36,10 @@ class Exponential:
         return(self.lambtha * 2.7182818285 ** - (self.lambtha * x))
 
     def cdf(self, x):
+        """
+        cumulative distribution function to get the probability
+        of our random variable is less or equal to the value of x
+        """
         if x < 0:
             return 0
         return(1 - 2.7182818285 ** - (self.lambtha * x))
