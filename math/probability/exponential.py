@@ -6,8 +6,8 @@ This is our main exponential class
 
 class Exponential:
     """
-    this defines the exponential class to 
-    understand the core concepts of 
+    this defines the exponential class to
+    understand the core concepts of
     exponential distrubiation
     """
     def __init__(self, data=None, lambtha=1.):
