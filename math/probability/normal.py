@@ -25,9 +25,10 @@ class Normal:
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
+            n = len(data)
             self.mean = float(sum(data) / len(data))
-            self.stddev = (sum((x - self.mean) ** 2 for x in data) / len(data)) ** 0.5
- 
+            self.stddev = (sum((x - self.mean) **2 for x in data) / n) **0.5
+
     def pdf(self, x):
         """
         probability distribution function to search for the
