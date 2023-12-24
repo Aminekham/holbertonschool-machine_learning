@@ -28,7 +28,7 @@ class Exponential:
 
     def pdf(self, x):
         """
-        probability distribution function to search for the 
+        probability distribution function to search for the
         likelihood of a particular
         random variable to be in a the needed range of values
         """
