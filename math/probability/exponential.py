@@ -25,11 +25,12 @@ class Exponential:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = 1 / float(sum(data) / len(data))
+
     def pdf(self, x):
         """
         pdf function to search for the likelihood of a particular
-        random variable to be in a the needed range of values 
+        random variable to be in a the needed range of values
         """
         if x < 0:
             return 0
-        return(self.lambtha * 2.7182818285 **-(self.lambtha * x))
+        return(self.lambtha * 2.7182818285 ** - (self.lambtha * x))
