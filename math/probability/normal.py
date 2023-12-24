@@ -50,6 +50,7 @@ class Normal:
         determine the probability of our random variable
         that it takes this specific value x
         """
-        likelihood = (1 / (2 * 3.1415926536) ** 0.5) * 2.7182818285 ** (-1/2 * ((x - self.mean) / self.stddev) ** 2)
-        return likelihood
+        exponent = -0.5 * ((x - self.mean) / self.stddev) ** 2
+        pdf_value = (1 / (self.stddev * (2 * 3.1415926536) ** 0.5)) * 2.7182818285 ** exponent
+        return pdf_value
 
