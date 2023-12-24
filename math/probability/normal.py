@@ -27,7 +27,7 @@ class Normal:
                 raise ValueError("data must contain multiple values")
             n = len(data)
             self.mean = float(sum(data) / len(data))
-            self.stddev = (sum((x - self.mean) **2 for x in data) / n) **0.5
+            self.stddev = (sum((x - self.mean) ** 2 for x in data) / n) ** 0.5
 
     def pdf(self, x):
         """
