@@ -11,6 +11,10 @@ class Binomial:
     binomial distribution
     """
     def __init__(self, data=None, n=1, p=0.5):
+        """
+        init function to check values and calculate a reasonable value for
+        the number of trials and probability of success
+        """
         if data is None:
             if n <= 0:
                 raise ValueError("n must be a positive value")
