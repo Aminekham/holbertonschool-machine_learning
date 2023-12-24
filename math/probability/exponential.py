@@ -5,10 +5,15 @@ This is our main exponential class
 
 
 class Exponential:
+    """
+    this defines the exponential class to 
+    understand the core concepts of 
+    exponential distrubiation
+    """
     def __init__(self, data=None, lambtha=1.):
         """
         init function to check values and calculate a reasonable value for
-        the poisson rate
+        the lambtha rate
         """
         if data is None:
             if lambtha <= 0:
