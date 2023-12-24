@@ -54,3 +54,10 @@ class Normal:
         pdf_value = (1 / (self.stddev * (2 * 3.1415926536) ** 0.5)) * 2.7182818285 ** exponent
         return pdf_value
 
+    def cdf(self, x):
+        """
+        Calculate the cumulative distribution function (CDF) for a given x.
+        """
+        z = (x - self.mean) / (self.stddev * math.sqrt(2))
+        cdf_value = 0.5 * (1 + math.erf(z))
+        return cdf_value
