@@ -8,12 +8,12 @@ own
 
 class Neuron:
     """
-    this is the neuron responsible for performing 
-    the classification task 
+    this is the neuron responsible for performing
+    the classification task
     """
     def __init__(self, nx):
         """
-        initialisation function to get the 
+        initialisation function to get the
         weights entering the neuron
         while defining the bias b and the output A
         """
