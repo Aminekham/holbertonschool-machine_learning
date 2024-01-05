@@ -17,7 +17,7 @@ class Neuron:
         weights entering the neuron
         while defining the bias b and the output A
         """
-        self.w = np.random.normal(nx)
+        self.W = np.random.normal(nx)
         self.b = 0
         self.A = 0
         if type(nx) != int:
