@@ -8,16 +8,16 @@ own
 
 class Neuron:
     """
-    this is the neuron responsible for performing
+    This is the neuron responsible for performing
     the classification task
     """
-    W = None
-    b = None
-    A = None
+    __W = None
+    __b = None
+    __A = None
 
     def __init__(self, nx):
         """
-        initialisation function to get the
+        Initialization function to get the
         weights entering the neuron
         while defining the bias b and the output A
         """
@@ -25,30 +25,30 @@ class Neuron:
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
-        self.W = np.random.normal(size=(1, nx))
-        self.b = 0
-        self.A = 0
+        self.__W = np.random.normal(size=(1, nx))
+        self.__b = 0
+        self.__A = 0
 
     @property
     def W(self):
         """
-        weights getter
+        Weights getter
         """
-        return self.W
+        return self.__W
 
     @property
     def b(self):
         """
-        bias value getter
+        Bias value getter
         """
-        return self.b
+        return self.__b
 
     @property
     def A(self):
         """
         A value getter
         """
-        return self.A
+        return self.__A
     
     def forward_prop(self, X):
         """
