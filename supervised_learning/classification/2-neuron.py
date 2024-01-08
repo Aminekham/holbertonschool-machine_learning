@@ -49,11 +49,11 @@ class Neuron:
         A value getter
         """
         return self.__A
-    
+
     def forward_prop(self, X):
         """
-        calculating the z and the output of 
-        our softmax function for each 
+        calculating the z and the output of
+        our softmax function for each
         input
         """
         z = np.dot(self.__W, X) + self.__b
