@@ -67,5 +67,5 @@ class Neuron:
         our neuron and return to
         reduce it in the next steps
         """
-        cost = 1/len(A[0]) * np.sum(((Y - A)**2)) 
+        cost = -1/len(Y[0]) * np.sum(Y * np.log(A) + (1 - Y) * np.log(1 - A))
         return cost
