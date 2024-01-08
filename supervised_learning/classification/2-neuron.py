@@ -56,6 +56,6 @@ class Neuron:
         our softmax function for each 
         input
         """
-        z = np.dot(self.W, X) + self.b
-        self.A = 1 / (1 + np.exp(-z))
-        return self.A
+        z = np.dot(self.__W, X) + self.__b
+        self.__A = 1 / (1 + np.exp(-z))
+        return self.__A
