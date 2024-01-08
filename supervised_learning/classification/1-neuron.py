@@ -30,18 +30,18 @@ class Neuron:
         """
         weights getter
         """
-        return(self.__W)
+        return self.__W
 
     @property
     def b_getter(self):
         """
         bias value getter
         """
-        return(self.__b)
+        return self.__b
 
     @property
     def A_getter(self):
         """
         A value getter
         """
-        return(self.__A)
+        return self.__A
