@@ -61,4 +61,16 @@ class Neuron:
         return self.__A
 
     def cost(self, Y, A):
-        print(A.shape)
+        """
+        calculating the loss and then
+        calculate the whole cost of
+        our neuron and return to
+        reduce it in the next steps
+        """
+        first_A = A[0]
+        first_Y = Y[0]
+        loss = 0
+        for i in range(len(first_A)):
+            loss = loss + (first_Y[i] - first_A[i]) ** 2
+        cost = 1/len(first_A) * loss
+        return cost
