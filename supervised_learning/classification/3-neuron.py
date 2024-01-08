@@ -68,4 +68,4 @@ class Neuron:
         reduce it in the next steps
         """
         cost = -1/len(Y[0]) * np.sum(Y * np.log(A) + (1 - Y) * np.log(1 - A))
-        return cost
+        return np.round(cost)
