@@ -11,6 +11,10 @@ class Neuron:
     this is the neuron responsible for performing
     the classification task
     """
+    __W = None
+    __b = None
+    __A = None
+
     def __init__(self, nx):
         """
         initialisation function to get the
@@ -26,21 +30,21 @@ class Neuron:
         self.__A = 0
 
     @property
-    def weights_getter(self):
+    def W(self):
         """
         weights getter
         """
         return self.__W
 
     @property
-    def b_getter(self):
+    def b(self):
         """
         bias value getter
         """
         return self.__b
 
     @property
-    def A_getter(self):
+    def A(self):
         """
         A value getter
         """

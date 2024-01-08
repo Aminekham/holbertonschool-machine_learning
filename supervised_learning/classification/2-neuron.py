@@ -25,30 +25,30 @@ class Neuron:
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
-        self.__W = np.random.normal(size=(1, nx))
-        self.__b = 0
-        self.__A = 0
+        self.W = np.random.normal(size=(1, nx))
+        self.b = 0
+        self.A = 0
 
     @property
     def W(self):
         """
         weights getter
         """
-        return self.__W
+        return self.W
 
     @property
     def b(self):
         """
         bias value getter
         """
-        return self.__b
+        return self.b
 
     @property
     def A(self):
         """
         A value getter
         """
-        return self.__A
+        return self.A
     
     def forward_prop(self, X):
         """
@@ -56,6 +56,6 @@ class Neuron:
         our softmax function for each 
         input
         """
-        z = np.dot(self.__W, X) + self.__b
-        self.__A = 1 / (1 + np.exp(-z))
-        return self.__A
+        z = np.dot(self.W, X) + self.b
+        self.A = 1 / (1 + np.exp(-z))
+        return self.A
