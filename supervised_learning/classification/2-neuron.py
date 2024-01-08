@@ -11,9 +11,10 @@ class Neuron:
     this is the neuron responsible for performing
     the classification task
     """
-    __W = np.random.normal(size=(1, nx))
-    __b = 0
-    __A = 0
+    __W = None
+    __b = None
+    __A = None
+
     def __init__(self, nx):
         """
         initialisation function to get the
