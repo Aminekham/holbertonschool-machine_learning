@@ -67,5 +67,5 @@ class Neuron:
         our neuron and return to
         reduce it in the next steps
         """
-        cost = 1/len(A[0]) * (Y - A) 
+        cost = 1/len(A[0]) * ((Y - A)**2) 
         return cost
