@@ -5,10 +5,9 @@ Creating the neural network by our
 own to use it
 """
 
-
 class Neuron:
     """
-    this is the neuron responsible for performing
+    This is the neuron responsible for performing
     the classification task
     """
     __W = None
@@ -17,7 +16,7 @@ class Neuron:
 
     def __init__(self, nx):
         """
-        initialisation function to get the
+        Initialization function to get the
         weights entering the neuron
         while defining the bias b and the output A
         """
@@ -32,14 +31,14 @@ class Neuron:
     @property
     def W(self):
         """
-        weights getter
+        Weights getter
         """
         return self.__W
 
     @property
     def b(self):
         """
-        bias value getter
+        Bias value getter
         """
         return self.__b
 
