@@ -2,7 +2,7 @@
 import numpy as np
 """
 Creating the neural network by our
-own
+own to use it
 """
 
 
