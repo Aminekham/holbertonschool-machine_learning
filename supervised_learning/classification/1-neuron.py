@@ -5,6 +5,7 @@ Creating the neural network by our
 own to use it
 """
 
+
 class Neuron:
     """
     This is the neuron responsible for performing
