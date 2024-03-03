@@ -53,7 +53,6 @@ class Yolo:
             t_y = output[:, :, :, 1]
             t_w = output[:, :, :, 2]
             t_h = output[:, :, :, 3]
-
             pw_total = self.anchors[:, :, 0]
             pw = np.tile(pw_total[index], grid_w)
             pw = pw.reshape(grid_w, 1, len(pw_total[index]))
@@ -65,7 +64,6 @@ class Yolo:
             cy = np.tile(np.arange(grid_w), grid_h)
             cy = cy.reshape(grid_h, grid_h).T
             cy = cy.reshape(grid_h, grid_h, 1)
-
             bx = (1 / (1 + np.exp(-t_x))) + cx
             by = (1 / (1 + np.exp(-t_y))) + cy
             bw = np.exp(t_w) * pw
@@ -74,7 +72,6 @@ class Yolo:
             by = by / grid_h
             bw = bw / self.model.input.shape[1]
             bh = bh / self.model.input.shape[2]
-
             x1 = (bx - (bw / 2)) * image_size[1]
             y1 = (by - (bh / 2)) * image_size[0]
             x2 = (bx + (bw / 2)) * image_size[1]
