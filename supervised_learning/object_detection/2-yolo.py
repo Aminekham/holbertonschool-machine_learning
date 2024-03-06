@@ -96,7 +96,8 @@ class Yolo:
             box_class_scores = np.max(scores, axis=-1)
             positions = np.where(box_class_scores >= threshold)
             filtered_boxes.append(boxes[i][positions])
-            box_classes.append(np.argmax(box_class_probs[i], axis=-1)[positions])
+            box_classes.append(np.argmax(box_class_probs[i],
+                                         axis=-1)[positions])
             box_scores.append(box_class_scores[positions])
         filtered_boxes = np.concatenate(filtered_boxes)
         box_classes = np.concatenate(box_classes, axis=-1)
