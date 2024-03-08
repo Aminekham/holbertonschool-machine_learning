@@ -73,8 +73,8 @@ class Yolo:
             bh = np.exp(t_h) * ph
             bx = bx / grid_w
             by = by / grid_h
-            bw = bw / self.model.input.shape[1]
-            bh = bh / self.model.input.shape[2]
+            bw = bw / self.model.input.shape[1].value
+            bh = bh / self.model.input.shape[2].value
             x1 = (bx - (bw / 2)) * image_size[1]
             y1 = (by - (bh / 2)) * image_size[0]
             x2 = (bx + (bw / 2)) * image_size[1]
