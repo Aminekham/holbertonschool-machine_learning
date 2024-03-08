@@ -119,7 +119,9 @@ class Yolo:
             inter_y1 = np.maximum(box[1], boxes[:, 1])
             inter_x2 = np.minimum(box[2], boxes[:, 2])
             inter_y2 = np.minimum(box[3], boxes[:, 3])
-            inter_area = np.maximum(0, inter_x2 - inter_x1) * np.maximum(0, inter_y2 - inter_y1)
+            inter_x = np.maximum(0, inter_x2 - inter_x1)
+            inter_y = np.maximum(0, inter_y2 - inter_y1)
+            inter_area = inter_x * inter_y
             iou = inter_area / (box_area + boxes_area - inter_area + 1e-9)
             return iou
 
@@ -139,6 +141,7 @@ class Yolo:
                 filtered_indices = np.where(iou < self.nms_t)[0]
                 class_boxes = class_boxes[1:][filtered_indices]
                 class_scores = class_scores[1:][filtered_indices]
-
-        return np.array(selected_boxes), np.array(selected_classes), np.array(selected_scores)
-
+        selected_boxes = np.array(selected_boxes)
+        selected_classes = np.array(selected_classes)
+        selected_scores = np.array(selected_scores)
+        return selected_boxes, selected_classes, selected_scores
