@@ -108,10 +108,13 @@ class Yolo:
         """
         def calculate_iou(box, boxes):
             """
-            Calculate IoU (Intersection over Union) between a box and a list of boxes.
+            Calculate IoU (Intersection over Union) between
+            a box and a list of boxes
             """
             box_area = (box[2] - box[0]) * (box[3] - box[1])
-            boxes_area = (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
+            length_x = (boxes[:, 2] - boxes[:, 0])
+            length_y = (boxes[:, 3] - boxes[:, 1])
+            boxes_area = length_x * length_y
             inter_x1 = np.maximum(box[0], boxes[:, 0])
             inter_y1 = np.maximum(box[1], boxes[:, 1])
             inter_x2 = np.minimum(box[2], boxes[:, 2])
@@ -119,6 +122,7 @@ class Yolo:
             inter_area = np.maximum(0, inter_x2 - inter_x1) * np.maximum(0, inter_y2 - inter_y1)
             iou = inter_area / (box_area + boxes_area - inter_area + 1e-9)
             return iou
+
         selected_boxes, selected_classes, selected_scores = [], [], []
         for class_idx in np.unique(box_classes):
             class_indices = np.where(box_classes == class_idx)[0]
