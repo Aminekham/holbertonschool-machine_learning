@@ -152,12 +152,11 @@ class Yolo:
     def load_images(folder_path):
         """
         """
-        images_paths = os.listdir(folder_path)
-        images = ()
-        images_path_tuple = ()
-        for image_path in images_paths:
-            image_path = os.path.join(folder_path, image_path)
+        images = []
+        image_paths = []
+        for filename in os.listdir(folder_path):
+            image_path = os.path.join(folder_path, filename)
             image = cv2.imread(image_path)
-            images = images + image
-            images_path_tuple = images_path_tuple + image_path
-        return images, images_path_tuple
+            images.append(image)
+            image_paths.append(image_path)
+        return images, image_paths
