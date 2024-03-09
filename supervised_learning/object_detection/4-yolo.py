@@ -149,6 +149,7 @@ class Yolo:
         selected_scores = np.array(selected_scores)
         return selected_boxes, selected_classes, selected_scores
 
+    @staticmethod
     def load_images(folder_path):
         """
         """
