@@ -7,7 +7,7 @@ minor = __import__('1-minor').minor
 
 def cofactor(matrix):
     """
-    
+
     """
     minor_matrix = minor(matrix)
     for i in range(len(minor_matrix)):
