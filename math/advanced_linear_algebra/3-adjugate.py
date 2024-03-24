@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-
+The adjugate or adjoint of a matrix
 """
 cofactor = __import__('2-cofactor').cofactor
 
 
 def adjugate(matrix):
     """
-
+    Its the transpose of the cofactor
+    matrix which visually respesents the
+    matrix that does the undo of the
+    original matrix effect
     """
     cofactor_matrix = cofactor(matrix)
     adjugate_matrix = []
