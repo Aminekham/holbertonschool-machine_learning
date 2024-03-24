@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-
+The cofactor matrix
 """
 minor = __import__('1-minor').minor
 
 
 def cofactor(matrix):
     """
-
+    The cofactor is the minor
+    with a sign specification
+    so it can be used to define
+    the determinant
     """
     minor_matrix = minor(matrix)
     for i in range(len(minor_matrix)):
@@ -16,5 +19,5 @@ def cofactor(matrix):
                 minor_matrix[i][j] = -1 * minor_matrix[i][j]
             if i % 2 == 0 and j % 2 != 0:
                 minor_matrix[i][j] = -1 * minor_matrix[i][j]
-    # the final minor matrix is the cofactor matrix
+    # the final minor matrix variable is the cofactor matrix
     return minor_matrix
