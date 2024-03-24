@@ -23,7 +23,7 @@ def minor(matrix):
     for i in range(num_rows):
         minor_row = []
         for j in range(num_rows):
-            minor_row.append(determinant([row[:j] + row[j+1:] for row in 
+            minor_row.append(determinant([row[:j] + row[j+1:] for row in
                                           matrix[:i] + matrix[i+1:]]))
         minors.append(minor_row)
     return minors
