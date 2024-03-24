@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """
-
+The mean and covariance
 """
 import numpy as np
 
 
 def mean_cov(X):
+    """
+    calculating the mean and
+    covariance of a certain data points
+    for multivariate normal distrubition
+    """
     if X.shape[1] != 3 or not isinstance(X, np.ndarray):
         raise TypeError("X must be a 2D numpy.ndarray")
     if X.shape[0] < 2:
