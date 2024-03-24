@@ -22,3 +22,15 @@ class MultiNormal:
         self.mean = np.mean(data, axis=1, keepdims=True)
         centered_data = data - self.mean
         self.cov = np.dot(centered_data, centered_data.T) / (data.shape[1] - 1)
+    def pdf(self, x):
+        """
+        calculating the pdf value
+        """
+        if not isinstance(x, np.ndarray):
+            raise TypeError("x must be a numpy.ndarray")
+        if x.shape != (self.mean.shape[0], 1):
+            raise ValueError(f"x must have the shape ({self.mean.shape[0]}, 1)")
+        exponent = -0.5 * np.dot((x - self.mean).T, np.dot(self.inv_cov, (x - self.mean)))
+        pdf_value = (1 / np.sqrt((2 * np.pi) ** self.mean.shape[0] * self.det_cov)) * np.exp(exponent)
+        return pdf_value
+
