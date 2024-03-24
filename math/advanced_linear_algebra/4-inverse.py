@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """
-
+The inverse of a matrix
 """
 adjugate = __import__('3-adjugate').adjugate
 determinant = __import__('0-determinant').determinant
 
 
 def inverse(matrix):
+    """
+    The inverse which is the
+    inverse effect of the transformation
+    that the original matrix does
+    """
     adjugate_matrix = adjugate(matrix)
     determinant_value = determinant(matrix)
     if determinant_value == 0:
