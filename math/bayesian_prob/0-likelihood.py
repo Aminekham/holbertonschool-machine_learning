@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 """
-
+Computing the first term
+in the bayesian probability
+which is the likelihood
 """
 import numpy as np
 
 
 def likelihood(x, n, P):
+    """
+    We are having a binomial distribution
+    so the as likelihood we will use the PMF:
+    P(X=x) = C(n, x)*(P**x)*(1-x)**(n-x)
+    """
     def factorial(n):
         if n == 0:
             return 1
