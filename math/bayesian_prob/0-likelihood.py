@@ -18,10 +18,14 @@ def likelihood(x, n, P):
         raise ValueError("x cannot be greater than n")
     if len(P.shape) != 1 or not isinstance(P, np.ndarray):
         raise TypeError("P must be a 1D numpy.ndarray")
-    for x in P:
-        if x < 0 or x > 1:
+    for p in P:
+        if p < 0 or p > 1:
             raise ValueError("All values in P must be in the range [0, 1]")
-    comb = factorial(n) / (factorial(x)*factorial(n-x))
-    likelihood = [comb * p**x * (1-p)**(n-x) for p in P]
-    likelihood = np.array(likelihood)
-    return likelihood
+    res = 1
+    print(x)
+    for i in range(x):
+        res = res * (n - i) // (i + 1)
+    likelihoods = np.zeros_like(P)
+    for i, p in enumerate(P):
+        likelihoods[i] = res * (p ** x) * ((1 - p) ** (n - x))
+    return likelihoods
