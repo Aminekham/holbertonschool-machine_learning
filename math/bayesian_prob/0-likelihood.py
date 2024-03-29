@@ -22,7 +22,6 @@ def likelihood(x, n, P):
         if p < 0 or p > 1:
             raise ValueError("All values in P must be in the range [0, 1]")
     res = 1
-    print(x)
     for i in range(x):
         res = res * (n - i) // (i + 1)
     likelihoods = np.zeros_like(P)
