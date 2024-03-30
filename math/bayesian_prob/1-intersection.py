@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-Computing the first term
-in the bayesian probability
-which is the likelihood
+Computing the intersection
+value for the bayesian probability
 """
 import numpy as np
 
 
 def intersection(x, n, P, Pr):
     """
-    We are having a binomial distribution
-    so the as likelihood we will use the PMF:
-    P(X=x) = C(n, x)*(P**x)*(1-x)**(n-x)
+    The intersection is multiplying
+    the likelihood by its prior belief
+    so we get a weighted likelihood
     """
     if not isinstance(n, int) or n < 1:
         raise ValueError("n must be a positive integer")
