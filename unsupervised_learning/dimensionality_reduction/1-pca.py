@@ -15,5 +15,5 @@ def pca(X, ndim):
     """
     X = X - np.mean(X)
     ls, s, rs = np.linalg.svd(X)
-    T = rs[:ndim].T
+    T = np.dot(X, rs[:ndim].T)
     return T
