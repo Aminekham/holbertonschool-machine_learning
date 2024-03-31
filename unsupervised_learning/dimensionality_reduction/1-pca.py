@@ -13,10 +13,7 @@ def pca(X, ndim):
     intensive than calculating the covariance matrix and getting the
     eigenvalues decomposition from it
     """
-    cov_matrix = np.cov(X, rowvar=False)
-    eigvals, eigvecs = np.linalg.eig(cov_matrix)
-    sorted_indices = np.argsort(eigvals)[::-1]
-    sorted_eigvecs = eigvecs[:, sorted_indices]
-    top_eigvecs = sorted_eigvecs[:, :ndim]
-    Wr = np.dot(X, top_eigvecs)
-    return Wr
+    X = X - np.mean(X)
+    ls, s, rs = np.linalg.svd(X)
+    T = rs[:ndim].T
+    return T
