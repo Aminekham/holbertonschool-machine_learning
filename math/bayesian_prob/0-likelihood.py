@@ -13,17 +13,13 @@ def likelihood(x, n, P):
     so the as likelihood we will use the PMF:
     P(X=x) = C(n, x)*(P**x)*(1-x)**(n-x)
     """
-    def factorial(n):
-        if n == 0:
-            return 1
-        return n * factorial(n - 1)
     if not isinstance(n, int) or n < 1:
         raise ValueError("n must be a positive integer")
     if not isinstance(x, int) or x < 0:
         raise ValueError("x must be an integer that is greater than or equal to 0")
     if x > n:
         raise ValueError("x cannot be greater than n")
-    if len(P.shape) != 1 or not isinstance(P, np.ndarray):
+    if not isinstance(P, np.ndarray) or len(P.shape) != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
     for p in P:
         if p < 0 or p > 1:
