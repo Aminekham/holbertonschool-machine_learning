@@ -14,9 +14,9 @@ def initialize(X, k):
     try:
         if k <= 0 or not isinstance(k, int):
             return None
-        x_min = np.min(X, axis = 0)
-        x_max = np.max(X, axis = 0)
-        init = np.random.uniform(x_min, x_max, size = (k, X.shape[1]))
+        x_min = np.min(X, axis=0)
+        x_max = np.max(X, axis=0)
+        init = np.random.uniform(x_min, x_max, size=(k, X.shape[1]))
         return init
     except Exception as e:
         return None
