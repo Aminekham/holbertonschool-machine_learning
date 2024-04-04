@@ -18,5 +18,5 @@ def initialize(X, k):
         x_max = np.max(X, axis = 0)
         init = np.random.uniform(x_min, x_max, size = (k, X.shape[1]))
         return init
-    except:
+    except Exception as e:
         return None
