@@ -12,7 +12,7 @@ def initialize(X, k):
     distribution to have the intial values
     """
     try:
-        if k < 0:
+        if k < 0 or not isinstance(k, int):
             return None
         x_min = np.min(X, axis = 0)
         x_max = np.max(X, axis = 0)
