@@ -38,5 +38,4 @@ def kmeans(X, k, iterations=1000):
             C = new_C
         return C, clss
     except Exception as e:
-        print("error")
         return None, None
