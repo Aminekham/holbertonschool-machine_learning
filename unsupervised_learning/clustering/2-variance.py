@@ -7,7 +7,7 @@ import numpy as np
 
 def variance(X, C):
     """
-    
+
     """
     if not isinstance(X, np.ndarray) or not isinstance(C, np.ndarray):
         return None
