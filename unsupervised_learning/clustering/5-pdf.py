@@ -7,7 +7,7 @@ import numpy as np
 
 def pdf(X, m, S):
     """
-    
+
     """
     try:
         S = (S + S.T) / 2
@@ -20,5 +20,5 @@ def pdf(X, m, S):
         min_x = 1e-300
         P = np.maximum(P, min_x)
         return P
-    except:
+    except Exception as e:
         return None
