@@ -8,7 +8,7 @@ pdf = __import__('5-pdf').pdf
 
 def expectation(X, pi, m, S):
     """
-    
+
     """
     try:
         k = pi.shape[0]
@@ -16,8 +16,8 @@ def expectation(X, pi, m, S):
         g = np.zeros((k, n))
         for i in range(k):
             g[i] = pi[i] * pdf(X, m[i], S[i])
-        l = np.sum(np.log(np.sum(g, axis=0)))
-        g /= np.sum(g, axis=0)
-        return g, l
+        log_likelihood = np.sum(np.log(np.sum(g, axis=0)))
+        posterior = g / np.sum(g, axis=0)
+        return posterior, log_likelihood
     except Exception as e:
         return None, None
