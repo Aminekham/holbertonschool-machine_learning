@@ -8,8 +8,8 @@ kmeans = __import__('1-kmeans').kmeans
 
 
 def initialize(X, k):
-    pi = np.full((k,), 1 / k)
     try:
+        pi = np.full((k,), 1 / k)
         centroids, _ = kmeans(X, k)
         d = X.shape[1]
         covariances = np.tile(np.eye(d), (k, 1, 1))
