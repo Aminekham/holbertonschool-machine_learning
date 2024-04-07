@@ -2,7 +2,7 @@
 """
 K-means implementation
 """
-from sklearn.cluster import KMeans
+import sklearn.cluster
 
 
 def kmeans(X, k):
@@ -11,7 +11,7 @@ def kmeans(X, k):
     already implemented kmeans
     algorithm
     """
-    kmeans = KMeans(n_clusters=k).fit(X)
+    kmeans = sklearn.cluster.KMeans(n_clusters=k).fit(X)
     C = kmeans.cluster_centers_
     clss = kmeans.labels_
     return C, clss
