@@ -7,7 +7,7 @@ import numpy as np
 
 def maximization(X, g):
     """
-    
+
     """
     try:
         k, n = g.shape
