@@ -7,7 +7,7 @@ import numpy as np
 
 def regular(P):
     """
-    
+
     """
     try:
         values, right_eigen = np.linalg.eig(P.T)
