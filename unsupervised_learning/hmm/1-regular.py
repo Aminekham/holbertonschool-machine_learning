@@ -16,6 +16,6 @@ def regular(P):
             return None
         left_eigen = np.real(right_eigen[:, idx])
         left_eigen /= np.sum(left_eigen)
-        return left_eigen.flatten()
+        return np.array([left_eigen.flatten()])
     except Exception as e:
         return None
