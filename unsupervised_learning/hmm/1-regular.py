@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-
+Determening if P represents
+a regular markov chain or not
 """
 import numpy as np
 
 
 def regular(P):
     """
-
+    regular markov chain means that we can
+    transition from any state to another
+    without having any periodic behavior
     """
     try:
         values, right_eigen = np.linalg.eig(P.T)
