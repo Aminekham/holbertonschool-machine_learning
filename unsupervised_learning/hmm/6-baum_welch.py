@@ -13,7 +13,7 @@ def baum_welch(Observations, Transition, Emission, Initial, iterations=1000):
     M, N = Emission.shape
     for _ in range(iterations):
         alpha = np.zeros((M, T))
-        alpha[:, 0] = np.squeeze(Initial * Emission[:, Observations[0]])
+        alpha[:, 0] = np.squeeze(Initial.reshape(-1, 1) * Emission[:, Observations[0]])
         for t in range(1, T):
             alpha[:, t] = np.dot(alpha[:, t-1], Transition) * Emission[:, Observations[t]]
         beta = np.zeros((M, T))
