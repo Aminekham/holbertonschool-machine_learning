@@ -23,9 +23,8 @@ class GaussianProcess:
             calculating the covariance kernel
             which is basically the eucleudian distance
             """
-            k = np.zeros((X1.shape[0], X2.shape[0]))
-            for i in range(X1.shape[0]):
-                for j in range(X2.shape[0]):
-                    distance = np.linalg.norm(X1[i] - X2[j])
-                    k[i, j] = np.exp(-distance ** 2 / (2 * self.l ** 2))
+            sqdist1 = np.sum(X1**2, 1).reshape(-1, 1) + np.sum(X2**2, 1)
+            sqdist2 = 2 * np.dot(X1, X2.T)
+            sqdist = sqdist1 - sqdist2
+            k = self.sigma_f**2 * np.exp(-0.5 / self.l**2 * sqdist)
             return k
