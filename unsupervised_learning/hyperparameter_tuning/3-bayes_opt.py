@@ -13,7 +13,8 @@ class BayesianOptimization:
     using the gaussian  process method to pick the best possible parameters
     based on an accusation function
     """
-    def __init__(self, f, X_init, Y_init, bounds, ac_samples, l=1, sigma_f=1, xsi=0.01, minimize=True):
+    def __init__(self, f, X_init, Y_init, bounds, ac_samples, l=1,
+                 sigma_f=1, xsi=0.01, minimize=True):
         """
         Initializing the bayessian optimization parameters + GP object
         """
