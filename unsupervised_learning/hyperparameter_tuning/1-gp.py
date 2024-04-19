@@ -35,14 +35,14 @@ class GaussianProcess:
         Calculating the mean and
         std div
         equation for mean
-        mean = K_training_test_data.T*(K_training+squared(sigma)*I)^-1*y_training
+        mean = K_training_test_data.T*(K_training+squared(sigma)*I)
+        ^-1*y_training
         """
-        cov_training = self.kernel(self.X, self.X)
-        cov_training_test = self.kernel(self.X, X_s)
+        cov_training_t = self.kernel(self.X, X_s)
         cov_test = self.kernel(X_s, X_s)
         K_inv = np.linalg.inv(self.K)
-        mu = cov_training_test.T.dot(K_inv).dot(self.Y)
+        mu = cov_training_t.T.dot(K_inv).dot(self.Y)
         mu = np.reshape(mu, -1)
-        sigma = cov_test - cov_training_test.T.dot(K_inv).dot(cov_training_test)
+        sigma = cov_test - cov_training_t.T.dot(K_inv).dot(cov_training_t)
         sigma = sigma.diagonal()
         return mu, sigma
