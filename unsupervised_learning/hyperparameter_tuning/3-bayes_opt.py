@@ -11,7 +11,7 @@ class BayesianOptimization:
     """
     the bayessian optimization class which is
     using the gaussian  process method to pick the best possible parameters
-    based on an accusation function
+    based on an accusation function and optimizing it
     """
     def __init__(self, f, X_init, Y_init, bounds, ac_samples, l=1,
                  sigma_f=1, xsi=0.01, minimize=True):
