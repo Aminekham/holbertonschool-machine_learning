@@ -3,9 +3,9 @@
 The bayessian optimization
 class file
 """
+from scipy.stats import norm
 import numpy as np
 GP = __import__('2-gp').GaussianProcess
-from scipy.stats import norm
 
 
 class BayesianOptimization:
