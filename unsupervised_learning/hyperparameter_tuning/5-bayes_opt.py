@@ -60,4 +60,4 @@ class BayesianOptimization:
             self.gp.update(X_next, Y_next)
         X_opt = self.gp.X[np.argmin(self.gp.Y)]
         Y_opt = np.min(self.gp.Y)
-        return X_opt, Y_opt
+        return X_opt, [Y_opt]
