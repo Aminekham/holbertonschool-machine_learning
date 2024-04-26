@@ -7,7 +7,7 @@ import tensorflow.keras as keras
 
 def autoencoder(input_dims, hidden_layers, latent_dims):
     """
-    
+
     """
     input = keras.Input(shape=(input_dims, ))
     layer = input
