@@ -29,13 +29,14 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
     x = decoder_inputs
     for units in reversed(hidden_layers):
         x = keras.layers.Dense(units, activation='relu')(x)
-    decoder_outputs = keras.layers.Dense(input_dims,activation='sigmoid')(x)
-    decoder = keras.models.Model(decoder_inputs, decoder_outputs, name='decoder')
+    decoder_outputs = keras.layers.Dense(input_dims, activation='sigmoid')(x)
+    decoder = keras.models.Model(decoder_inputs,
+                                 decoder_outputs, name='decoder')
     autoencoder_outputs = decoder(encoder(encoder_inputs)[0])
     autoencoder = keras.models.Model(encoder_inputs,
                                      autoencoder_outputs, name='autoencoder')
-    reconstruction_loss = tf.keras.losses.binary_crossentropy(encoder_inputs,
-                                                              autoencoder_outputs)
+    reconstruction_loss = tf.keras.losses.binary_crossentropy(
+        encoder_inputs,autoencoder_outputs)
     reconstruction_loss *= input_dims
     kl_loss = 1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var)
     kl_loss = tf.reduce_sum(kl_loss, axis=-1)
