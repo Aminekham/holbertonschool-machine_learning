@@ -17,7 +17,8 @@ def autoencoder(input_dims, hidden_layers, latent_dims, lambtha):
         hidden_ly = keras.layers.Dense(units=hidden_layers[i],
                                        activation='relu')
         Y_prev = hidden_ly(Y_prev)
-    latent_ly = keras.layers.Dense(units=latent_dims, activation='relu', activity_regularizer=keras.regularizers.l1(lambtha))
+    latent_ly = keras.layers.Dense(units=latent_dims, activation='relu',
+                                   activity_regularizer=keras.regularizers.l1(lambtha))
     bottleneck = latent_ly(Y_prev)
     encoder = keras.Model(X_input, bottleneck)
     X_input_decoded = keras.Input(shape=(latent_dims,))
