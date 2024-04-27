@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-
+The variational autoencoders
+which use probability instead of using layers
 """
 import tensorflow as tf
 import tensorflow.keras as keras
@@ -8,7 +9,10 @@ import tensorflow.keras as keras
 
 def autoencoder(input_dims, hidden_layers, latent_dims):
     """
-
+    Create a Variational AutoEncoder model
+    which is based on using a near gaussian distribution
+    for the latent variables and then reconstructing the input data from it
+    using another neural network with sigmoid activation function
     """
     encoder_inputs = keras.layers.Input(shape=(input_dims,))
     x = encoder_inputs
