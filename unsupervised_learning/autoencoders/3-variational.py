@@ -16,6 +16,7 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
         x = keras.layers.Dense(units, activation='relu')(x)
     z_mean = keras.layers.Dense(latent_dims)(x)
     z_log_var = keras.layers.Dense(latent_dims)(x)
+
     def sampling(args):
         z_mean, z_log_var = args
         batch = tf.shape(z_mean)[0]
@@ -36,7 +37,7 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
     autoencoder = keras.models.Model(encoder_inputs,
                                      autoencoder_outputs, name='autoencoder')
     reconstruction_loss = tf.keras.losses.binary_crossentropy(
-        encoder_inputs,autoencoder_outputs)
+        encoder_inputs, autoencoder_outputs)
     reconstruction_loss *= input_dims
     kl_loss = 1 + z_log_var - tf.square(z_mean) - tf.exp(z_log_var)
     kl_loss = tf.reduce_sum(kl_loss, axis=-1)
