@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 """
-
+Convolutional neural network
+to do the encoding and decoding
 """
 import tensorflow.keras as keras
 
+
 def autoencoder(input_dims, filters, latent_dims):
+    """
+    Compressing the images dimensions using a convolution
+    encoder and doing the upsampling to get back again
+    to the original images
+    """
     encoder_inputs = keras.layers.Input(shape=input_dims)
     x = encoder_inputs
     for f in filters:
