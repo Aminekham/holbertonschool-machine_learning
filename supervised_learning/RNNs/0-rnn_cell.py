@@ -21,6 +21,9 @@ class RNNCell:
         self.by = np.zeros((1, o))
 
     def forward(self, h_prev, x_t):
+        """
+        the forward propagation for the simple cell
+        """
         concat_input = np.concatenate((h_prev, x_t), axis=1)
         h_next = np.tanh(np.dot(concat_input, self.Wh) + self.bh)
         y = np.dot(h_next, self.Wy) + self.by
