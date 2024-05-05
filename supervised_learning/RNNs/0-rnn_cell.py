@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
-
+Defining a simple RNN cell
 """
 import numpy as np
 
 
 class RNNCell:
     """
-
+    The RNN cell
     """
     def __init__(self, i, h, o):
         """
-
+        The init function to initalize
+        the weights and biases for the hidden states
+        and the outputs
         """
         self.Wh = np.random.randn(h + i, h)
         self.bh = np.zeros((1, h))

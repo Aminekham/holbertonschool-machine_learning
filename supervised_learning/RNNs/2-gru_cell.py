@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
-
+The Gated Recurrent Units
 """
 import numpy as np
 
 
 class GRUCell:
     """
-
+    The gated recurrent unit cell
     """
     def __init__(self, i, h, o):
         """
-
+        Initialize all the needed parameters for the unit
+        which include the ones needed for the reset and
+        update mechanism
         """
         self.Wz = np.random.randn(i + h, h)
         self.Wr = np.random.randn(i + h, h)
@@ -24,7 +26,7 @@ class GRUCell:
 
     def forward(self, h_prev, x_t):
         """
-
+        The forward propagation using the gru
         """
         def sigmoid(x):
             return 1 / (1 + np.exp(-x))
@@ -37,7 +39,7 @@ class GRUCell:
         z = sigmoid(np.dot(concat, self.Wz) + self.bz)
         r = sigmoid(np.dot(concat, self.Wr) + self.br)
         concat_reset = np.concatenate((r * h_prev, x_t), axis=1)
-        h_tilde = np.tanh(np.dot(concat_reset, self.Wh) + self.bh)
-        h_next = (1 - z) * h_prev + z * h_tilde
+        h = np.tanh(np.dot(concat_reset, self.Wh) + self.bh)
+        h_next = (1 - z) * h_prev + z * h
         y = softmax(np.dot(h_next, self.Wy) + self.by)
         return h_next, y

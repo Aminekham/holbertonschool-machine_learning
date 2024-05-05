@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-
+Implementing the RNN
+based on the RNNcell from
+the previous task
 """
 import numpy as np
 
 
 def rnn(rnn_cell, X, h_0):
     """
-
+    Full RNN with its all steps
+    and iterations
     """
     t, m, _ = X.shape
     h = h_0.shape[1]
