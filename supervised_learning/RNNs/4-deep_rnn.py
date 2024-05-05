@@ -3,7 +3,6 @@
 The deep RNN
 """
 import numpy as np
-RNNCell = __import__('0-rnn_cell').RNNCell
 
 
 def deep_rnn(rnn_cells, X, h_0):
