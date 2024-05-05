@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-
+The LSTM implementation
 """
 import numpy as np
 
 
 class LSTMCell:
     """
-
+    single LSTM cell this is the basic building block of an LSTM
+    which solves the problem of vanishing gradiants in Traditional RNNs
     """
     def __init__(self, i, h, o):
         """
-
+        The initilization for all the needed parameters for LSTM
         """
         self.Wf = np.random.randn(h + i, h)
         self.bf = np.zeros((1, h))
@@ -26,7 +27,7 @@ class LSTMCell:
 
     def forward(self, h_prev, c_prev, x_t):
         """
-
+        The forward prob of an LSTM
         """
         concat = np.concatenate((h_prev, x_t), axis=1)
         fg = np.dot(concat, self.Wf) + self.bf
