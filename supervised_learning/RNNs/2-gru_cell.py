@@ -21,6 +21,7 @@ class GRUCell:
         self.br = np.zeros((1, h))
         self.bh = np.zeros((1, h))
         self.by = np.zeros((1, o))
+
     def forward(self, h_prev, x_t):
         """
 
