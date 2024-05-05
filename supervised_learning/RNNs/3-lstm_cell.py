@@ -36,7 +36,7 @@ class LSTMCell:
         c_temp = np.tanh(np.dot(concat, self.Wc) + self.bc)
         c_next = fg * c_prev + ug * c_temp
         og = np.dot(concat, self.Wo) + self.bo
-        og = 1 / (1 + np.exp(-og))        
+        og = 1 / (1 + np.exp(-og))
         h_next = og * np.tanh(c_next)
         y = np.dot(h_next, self.Wy) + self.by
         y = np.exp(y) / np.sum(np.exp(y), axis=1, keepdims=True)
