@@ -20,6 +20,6 @@ def deep_rnn(rnn_cells, X, h_0):
             if layer == 0:
                 H[t + 1, layer], Y[t] = cell.forward(H[t, layer], X[t])
             else:
-                H[t + 1, layer], _ = cell.forward(H[t, layer], H[t + 1, layer - 1])
+                H[t + 1, layer], _ = cell.forward(H[t, layer], H[t])
             Y[t] = Y[t].astype(float)
     return H, Y
