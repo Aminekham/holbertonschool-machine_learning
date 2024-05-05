@@ -33,7 +33,7 @@ class GRUCell:
             exps = np.exp(x - np.max(x, axis=1, keepdims=True))
             return exps / np.sum(exps, axis=1, keepdims=True)
 
-        concat = np.concatenate((h_prev, x_t), axis=1)    
+        concat = np.concatenate((h_prev, x_t), axis=1)
         z = sigmoid(np.dot(concat, self.Wz) + self.bz)
         r = sigmoid(np.dot(concat, self.Wr) + self.br)
         concat_reset = np.concatenate((r * h_prev, x_t), axis=1)
