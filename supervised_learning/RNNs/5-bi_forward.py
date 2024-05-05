@@ -7,11 +7,11 @@ import numpy as np
 
 class BidirectionalCell:
     """
-    
+
     """
     def __init__(self, i, h, o):
         """
-        
+
         """
         self.Whf = np.random.randn(i + h, h)
         self.Whb = np.random.randn(i + h, h)
@@ -22,8 +22,8 @@ class BidirectionalCell:
 
     def forward(self, h_prev, x_t):
         """
-        
+
         """
         h_x_concat = np.concatenate((h_prev, x_t), axis=1)
-        h_next = np.tanh(np.dot(h_x_concat, self.Whf) + self.bhf)        
+        h_next = np.tanh(np.dot(h_x_concat, self.Whf) + self.bhf)
         return h_next
