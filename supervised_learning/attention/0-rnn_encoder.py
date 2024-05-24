@@ -13,6 +13,7 @@ class RNNEncoder(tf.keras.layers.Layer):
         """
 
         """
+        super(RNNEncoder, self).__init__()
         self.batch = batch
         self.units = units
         self.embedding = tf.keras.layers.Embedding(vocab, embedding)
