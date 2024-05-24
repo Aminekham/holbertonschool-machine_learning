@@ -7,7 +7,8 @@ from tensorflow.keras.layers import Embedding
 
 def gensim_to_keras(model):
     """
-    
+    transforming gensim embeddings
+    to keras
     """
     weights = model.wv.vectors
     vocab_size, embedding_dim = weights.shape
