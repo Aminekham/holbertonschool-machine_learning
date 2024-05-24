@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import tensorflow as tf
-from tensorflow.keras.layers import Embedding, GRU, Dense
 SelfAttention = __import__('1-self_attention').SelfAttention
 """
 
@@ -12,10 +11,10 @@ class RNNDecoder(tf.keras.layers.Layer):
         super(RNNDecoder, self).__init__()
         self.units = units
         self.batch = batch
-        self.embedding = Embedding(input_dim=vocab, output_dim=embedding)
-        self.gru = GRU(units, return_sequences=True, return_state=True,
+        self.embedding = tf.keras.layers.Embedding(input_dim=vocab, output_dim=embedding)
+        self.gru = tf.keras.layers.GRU(units, return_sequences=True, return_state=True,
                        recurrent_initializer='glorot_uniform')
-        self.F = Dense(vocab)
+        self.F = tf.keras.layers.Dense(vocab)
         self.attention = SelfAttention(units)
     
     def call(self, x, s_prev, hidden_states):
