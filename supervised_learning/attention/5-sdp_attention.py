@@ -7,7 +7,10 @@ import tensorflow as tf
 
 def sdp_attention(Q, K, V, mask=None):
     """
-    
+    Applying the attention equation where
+    Q is the query(the whole sentence)
+    K is the key(the compared element to v)
+    V is the value(the element to be compared to K)
     """
     matmul_qk = tf.matmul(Q, K, transpose_b=True)
     dk = tf.cast(tf.shape(K)[-1], tf.float32)
