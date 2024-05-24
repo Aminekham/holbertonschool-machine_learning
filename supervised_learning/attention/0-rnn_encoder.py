@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 import tensorflow as tf
-from tensorflow.keras.layers import Embedding, GRU
-from tensorflow.keras.initializers import glorot_uniform
 """
 
 """
@@ -18,9 +16,9 @@ class RNNEncoder(tf.keras.layers.Layer):
         super(RNNEncoder, self).__init__()
         self.batch = batch
         self.units = units
-        self.embedding = Embedding(vocab, embedding)
-        self.gru = GRU(units,
-                       recurrent_initializer=glorot_uniform(),
+        self.embedding = tf.keras.layers.Embedding(vocab, embedding)
+        self.gru = tf.keras.layers.GRU(units,
+                       recurrent_initializer=tf.keras.initializers.glorot_uniform(),
                        return_sequences=True,
                        return_state=True)
 
