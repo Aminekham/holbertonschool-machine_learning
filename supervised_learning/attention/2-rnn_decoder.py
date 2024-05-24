@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import tensorflow as tf
 from tensorflow.keras.layers import Embedding, GRU, Dense
 SelfAttention = __import__('1-self_attention').SelfAttention
