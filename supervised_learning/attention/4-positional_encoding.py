@@ -7,7 +7,7 @@ import numpy as np
 
 def positional_encoding(max_seq_len, dm):
     """
-    
+
     """
     positional_encoding_matrix = np.zeros((max_seq_len, dm))
     for pos in range(max_seq_len):
