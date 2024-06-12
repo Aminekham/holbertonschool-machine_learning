@@ -61,8 +61,8 @@ class Simple_GAN(keras.Model) :
             self.discriminator.optimizer.apply_gradients(zip(discr_grads, self.discriminator.trainable_variables))
 
         # compute the loss for the generator in a tape watching the generator's weights
-            # compute the loss gen_loss of the generator on this sample
-            with tf.GradientTape() as gen_tape:
+        # compute the loss gen_loss of the generator on this sample
+        with tf.GradientTape() as gen_tape:
                 fake = self.get_fake_sample(training=True)
                 fake_output = self.discriminator(fake, training=True)
                 gen_loss = self.generator.loss(fake_output)
