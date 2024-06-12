@@ -14,18 +14,18 @@ class Simple_GAN(keras.Model) :
         self.discriminator    = discriminator
         self.batch_size       = batch_size
         self.disc_iter        = disc_iter
-        
+
         self.learning_rate    = learning_rate
         self.beta_1=.5                               # standard value, but can be changed if necessary
         self.beta_2=.9                               # standard value, but can be changed if necessary
         
         # define the generator loss and optimizer:
-        self.generator.loss      = lambda x : tf.keras.losses.MeanSquaredError()(x, tf.ones(x.shape))
+        self.generator.loss = lambda x : (tf.keras.losses.MeanSquaredError()(x, tf.ones(x.shape)))
         self.generator.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate, beta_1=self.beta_1, beta_2=self.beta_2)
         self.generator.compile(optimizer=generator.optimizer , loss=generator.loss )
         
         # define the discriminator loss and optimizer:
-        self.discriminator.loss      = lambda x,y : tf.keras.losses.MeanSquaredError()(x, tf.ones(x.shape)) + tf.keras.losses.MeanSquaredError()(y, -1*tf.ones(y.shape))
+        self.discriminator.loss = lambda x,y : (tf.keras.losses.MeanSquaredError()(x, tf.ones(x.shape)) + tf.keras.losses.MeanSquaredError()(y, -1*tf.ones(y.shape)))
         self.discriminator.optimizer = keras.optimizers.Adam(learning_rate=self.learning_rate, beta_1=self.beta_1, beta_2=self.beta_2)
         self.discriminator.compile(optimizer=discriminator.optimizer , loss=discriminator.loss )
 
@@ -46,7 +46,9 @@ class Simple_GAN(keras.Model) :
              
     # overloading train_step()    
     def train_step(self,useless_argument):
-        for _ in range(self.disc_iter) :    
+        for _ in range(self.disc_iter):
+            discr_loss = 0
+            gen_loss = 0
             # compute the loss for the discriminator in a tape watching the discriminator's weights
             real = self.get_real_sample()
             fake = self.get_fake_sample(training=True)
