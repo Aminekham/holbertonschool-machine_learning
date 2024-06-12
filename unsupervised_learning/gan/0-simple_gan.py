@@ -46,9 +46,9 @@ class Simple_GAN(keras.Model) :
              
     # overloading train_step()    
     def train_step(self,useless_argument):
+        discr_loss = 0
+        gen_loss = 0
         for _ in range(self.disc_iter):
-            discr_loss = 0
-            gen_loss = 0
             # compute the loss for the discriminator in a tape watching the discriminator's weights
             real = self.get_real_sample()
             fake = self.get_fake_sample(training=True)
