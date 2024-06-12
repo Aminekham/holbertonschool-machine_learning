@@ -58,10 +58,8 @@ class WGAN_clip(keras.Model) :
                     discr_loss = self.discriminator.loss(real_output, fake_output)
                 discr_grads = disc_tape.gradient(discr_loss, self.discriminator.trainable_variables)
                 self.discriminator.optimizer.apply_gradients(zip(discr_grads, self.discriminator.trainable_variables))
-
-            
-        for v in self.discriminator.trainable_variables:
-            v.assign(tf.clip_by_value(v, -1, 1))
+                for v in self.discriminator.trainable_variables:
+                    v.assign(tf.clip_by_value(v, -1, 1))
         # compute the loss for the generator in a tape watching the generator's weights 
         with tf.GradientTape() as gen_tape:
                 fake = self.get_fake_sample(training=True)
