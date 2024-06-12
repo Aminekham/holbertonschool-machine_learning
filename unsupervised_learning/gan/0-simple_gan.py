@@ -48,9 +48,9 @@ class Simple_GAN(keras.Model) :
     def train_step(self,useless_argument):
         for _ in range(self.disc_iter) :    
             # compute the loss for the discriminator in a tape watching the discriminator's weights
+            real = self.get_real_sample()
+            fake = self.get_fake_sample(training=True)
             with tf.GradientTape() as disc_tape:
-                real = self.get_real_sample()
-                fake = self.get_fake_sample(training=True)
                 real_output = self.discriminator(real, training=True)
                 fake_output = self.discriminator(fake, training=True)
                 discr_loss = self.discriminator.loss(real_output, fake_output)
