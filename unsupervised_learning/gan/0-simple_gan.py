@@ -62,7 +62,7 @@ class Simple_GAN(keras.Model) :
             # compute the loss gen_loss of the generator on this sample
             with tf.GradientTape() as gen_tape:
                 fake = self.get_fake_sample(training=True)
-                fake_output = self.discriminator(fake, training=True)
+                fake_output = self.discriminator(fake, training=False)
                 gen_loss = self.generator.loss(fake_output)
         # apply gradient descent to the generator
         gen_grads = gen_tape.gradient(gen_loss, self.generator.trainable_variables)
