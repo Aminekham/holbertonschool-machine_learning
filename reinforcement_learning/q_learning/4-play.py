@@ -8,16 +8,15 @@ def play(env, Q, max_steps=100):
     """
     
     """
-    agent = Q
-    reset = env.reset()
-    state = reset[0]
+    state = env.reset()
+    env.render()
     total_reward = 0
-    done = False
+    state = state[0]
     for step in range(max_steps):
-        action = np.argmax(agent[state, :])
+        action = np.argmax(Q[state, :])
         next_state, reward, done, _, _ = env.step(action)
-        agent[state, action] += reward
         total_reward += reward
+        env.render()
         state = next_state
         if done:
             break
