@@ -15,14 +15,14 @@ def train(env, Q, episodes=5000, max_steps=100, alpha=0.1,
         state = x[0]
         done = False
         total_reward = 0
-        p = np.random.uniform(0, 1)
         for step in range(max_steps):
-            if p > epsilon:
+            p = np.random.uniform(0, 1)
+            if p < epsilon:
                 action = env.action_space.sample()
             else:
                 action = np.argmax(Q[state, :])
             next_state, reward, done, _, _ = env.step(action)
-            Q[state][action] = Q[state][action] + alpha * (reward + gamma * Q[next_state][action])
+            Q[state, action] = Q[state, action] * (1 - alpha) + alpha * (reward + gamma * np.max(Q[next_state, :]))
             state = next_state
             total_reward += reward
             if done:
