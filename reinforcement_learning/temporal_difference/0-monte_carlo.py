@@ -6,6 +6,7 @@ def monte_carlo(env, V, policy, episodes=5000, max_steps=100, alpha=0.1, gamma=0
     """
     Performs the monte carlo technique
     to evaluate policies and give the value estimations
+    after each episode
     """
     for episode in range(episodes):
         state = env.reset()
