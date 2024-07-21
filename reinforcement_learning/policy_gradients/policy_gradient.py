@@ -18,3 +18,15 @@ def policy(matrix, weight):
     z = np.exp(np.dot(matrix, weight) - np.max(np.dot(matrix, weight)))
     policy = z / np.sum(z)
     return policy
+
+def policy_gradient(state, weight):
+    """
+    Computing the needed gradient for
+    the monte carlo policy gradient
+    REINFORCE
+    """
+    probs = policy(state, weight)
+    action = np.random.choice(len(probs[0]), p=probs[0])
+    probs[0, action] -= 1
+    grad = np.dot(state.T, probs)
+    return action, grad
