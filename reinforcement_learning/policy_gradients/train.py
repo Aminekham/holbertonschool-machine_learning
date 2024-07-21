@@ -31,15 +31,17 @@ def policy_gradient(state, weight):
     grad = np.dot(state.T, probs)
     return action, grad
 
-def train(env, nb_episodes, alpha=0.000045, gamma=0.98):
+def train(env, nb_episodes, alpha=0.000045, gamma=0.98, show_result=False):
     weight = np.random.rand(env.observation_space.shape[0], env.action_space.n)
     scores = []
     for episode in range(nb_episodes):
-        state = env.reset()[None, :]
+        state = env.reset()
         episode_rewards = []
         episode_gradients = []
         done = False
         while not done:
+            if show_result and episode % 1000 == 0:
+                env.render()
             action, grad = policy_gradient(state, weight)
             next_state, reward, done, _ = env.step(action)
             next_state = next_state[None, :]
