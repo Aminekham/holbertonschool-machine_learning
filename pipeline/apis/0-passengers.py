@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-
+This is the needed
+function to get specific
 """
 import requests
 
 def availableShips(passengerCount):
     """
-
+    informations from an API
+    using the request library
     """
     ships_list = []
     ships = requests.get("https://swapi-api.hbtn.io/api/starships")
