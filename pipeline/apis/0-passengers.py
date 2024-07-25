@@ -5,6 +5,7 @@ function to get specific
 """
 import requests
 
+
 def availableShips(passengerCount):
     """
     informations from an API
@@ -24,7 +25,7 @@ def availableShips(passengerCount):
                 passengers = passengers[0] + passengers[1]
             if float(passengers) >= float(passengerCount):
                 ships_list.append(ship["name"])
-        if ships["next"] != None:
+        if ships["next"] is not None:
             url = ships["next"]
         else:
             break
