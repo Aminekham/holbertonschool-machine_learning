@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-
+test doc
 """
 import requests
 
 
 def sentientPlanets():
     """
-    
+    test doc 2.0
     """
     url = "https://swapi-api.hbtn.io/api/planets/"
     planets_names = []
