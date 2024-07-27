@@ -22,4 +22,4 @@ if __name__ == '__main__':
         reset_time = int(reset_time)
         current_time = int(time.time())
         wait_time = (reset_time - current_time) // 60
-        print(f"Reset in {wait_time} min")
+        print("Reset in {} min".format(wait_time))
