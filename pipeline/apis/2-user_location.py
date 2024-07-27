@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import requests
+import sys
+import time
+
+if __name__ == '__main__':
+    api_url = sys.argv[1]
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        user_data = response.json()
+        print(user_data["location"])
+    elif response.status_code == 404:
+        print("Not found")
+    elif response.status_code == 403:
+        reset_time = response.headers.get("X-Ratelimit-Reset")
+        if reset_time:
+            reset_time = int(reset_time)
+            current_time = int(time.time())
+            wait_time = (reset_time - current_time) // 60
+            print(f"Reset in {wait_time} min")
+        else:
+            print("Rate limit exceeded, please try again later")
