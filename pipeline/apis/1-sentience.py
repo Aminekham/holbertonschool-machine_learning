@@ -9,24 +9,19 @@ def sentientPlanets():
     """
     test doc 2.0
     """
-    url = "https://swapi-api.hbtn.io/api/planets/"
-    planets_names = []
-    while 1:
-        planets = requests.get(url)
-        planets = planets.json()
-        for planet in planets["results"]:
-            for resident in planet["residents"]:
-                resident_info = requests.get(resident)
-                resident_info = resident_info.json()
-                if len(resident_info["species"]) != 0:
-                    specie = requests.get(resident_info["species"][0])
-                    specie = specie.json()
-                    if (specie["designation"] == "sentient" or specie["classification"] == "sentient") and planet["name"] not in planets_names:
-                        planets_names.append(planet["name"])
-                else:
+    url = "https://swapi-api.hbtn.io/api/species"
+    sentient_planets = []
+    while url:
+        response = requests.get(url)
+        species_data = response.json()
+        for specie in species_data["results"]:
+            if specie["designation"] == "sentient":
+                planet = specie["homeworld"]
+                if planet is None:
                     continue
-        if planets["next"] is not None:
-            url = planets["next"]
-        else:
+                planet = requests.get(planet).json()
+                sentient_planets.append(planet["name"])
+        url = species_data["next"]
+        if url is None:
             break
-    return planets_names
+    return sentient_planets
