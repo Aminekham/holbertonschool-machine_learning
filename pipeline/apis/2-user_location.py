@@ -19,10 +19,7 @@ if __name__ == '__main__':
         print("Not found")
     elif response.status_code == 403:
         reset_time = response.headers.get("X-Ratelimit-Reset")
-        if reset_time:
-            reset_time = int(reset_time)
-            current_time = int(time.time())
-            wait_time = (reset_time - current_time) // 60
-            print(f"Reset in {wait_time} min")
-        else:
-            print("Rate limit exceeded, please try again later")
+        reset_time = int(reset_time)
+        current_time = int(time.time())
+        wait_time = (reset_time - current_time) // 60
+        print(f"Reset in {wait_time} min")
