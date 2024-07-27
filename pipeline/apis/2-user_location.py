@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
+"""
+the documentation check
+"""
 import requests
 import sys
 import time
 
 if __name__ == '__main__':
+    """
+    main function in python
+    """
     api_url = sys.argv[1]
     response = requests.get(api_url)
     if response.status_code == 200:
