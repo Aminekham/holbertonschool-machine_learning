@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-
+everything is documented up here
 """
 import requests
 
 
 if __name__ == '__main__':
     """
-
+    and down here also
     """
     launches = requests.get("https://api.spacexdata.com/v4/launches/upcoming").json()
     closest_launch = launches[0]
