@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """
-
+hello this is me doc
 """
 import requests
 
 
 if __name__ == '__main__':
+    """
+    its me again doc 2.0
+    """
     rockets = {}
     launches = requests.get("https://api.spacexdata.com/v4/launches").json()
+    print(len(launches))
     for launch in launches:
         if launch["rocket"] not in rockets.keys():
             rocket_name = requests.get("https://api.spacexdata.com/v4/rockets/{}".format(launch["rocket"])).json()["name"]
