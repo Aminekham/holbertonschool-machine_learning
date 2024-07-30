@@ -14,7 +14,8 @@ if __name__ == '__main__':
     for launch in launches:
         if launch["rocket"] not in rockets.keys():
             lk = "https://api.spacexdata.com/v4/rockets/"
-            rocket_name = requests.get("{}{}".format(lk ,launch["rocket"])).json()["name"]
+            ln = launch["rocket"]
+            rocket_name = requests.get("{}{}".format(lk, ln)).json()["name"]
             rockets[launch["rocket"]] = [rocket_name, 1]
         elif launch["rocket"] in rockets.keys():
             rockets[launch["rocket"]][1] += 1
