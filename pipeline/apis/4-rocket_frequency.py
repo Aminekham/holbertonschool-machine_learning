@@ -17,5 +17,8 @@ if __name__ == '__main__':
             rockets[launch["rocket"]] = [rocket_name, 1]
         elif launch["rocket"] in rockets.keys():
             rockets[launch["rocket"]][1] += 1
+    rocket_list = []
     for rocket in rockets.keys():
-        print("{}: {}".format(rockets[rocket][0], rockets[rocket][1]))
+        rocket_list.append(rockets[rocket])
+    rocket_list = sorted(rocket_list, key=lambda x: x[1], reverse=True)
+    print(rocket_list)
