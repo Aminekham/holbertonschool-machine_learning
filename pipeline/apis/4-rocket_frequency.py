@@ -21,4 +21,5 @@ if __name__ == '__main__':
     for rocket in rockets.keys():
         rocket_list.append(rockets[rocket])
     rocket_list = sorted(rocket_list, key=lambda x: x[1], reverse=True)
-    print(rocket_list)
+    for rocket_pro in rocket_list:
+        print("{}: {}".format(rocket_pro[0], rocket_pro[1]))
