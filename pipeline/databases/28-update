@@ -1,0 +1,4 @@
+// Updating documents with certain conditions
+db.school.updateMany(
+    { name: "Holberton school" },
+    { $set: { address: "972 Mission street" } });
