@@ -1,0 +1,2 @@
+// Using that db
+use my_db;
