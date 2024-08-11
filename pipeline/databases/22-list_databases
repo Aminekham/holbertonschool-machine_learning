@@ -1,2 +1,2 @@
 // Needing a comment
-db.adminCommand('listDatabases');
+db.adminCommand('listDatabases').databases.forEach(db => print(db.name));
