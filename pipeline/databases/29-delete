@@ -1,3 +1,4 @@
 // Deleting with a condition
 var result = db.school.deleteMany(
     { name: "Holberton school" })
+printjson(result);
