@@ -1,2 +1,5 @@
 // Needing a comment
-db.adminCommand('listDatabases').databases.forEach(db => print(db.name));
+var databases = db.adminCommand('listDatabases').databases;
+databases.forEach(function(db) {
+    print(db.name);
+});
