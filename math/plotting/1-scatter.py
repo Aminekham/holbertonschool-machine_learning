@@ -11,6 +11,6 @@ y += 180
 plt.xlabel("Height (in)")
 plt.ylabel("Weight (lbs)")
 plt.title("Men's Height vs Weight")
-plt.plot(x, y, color = "magenta", marker = 'o', ls= '')
+plt.plot(x, y, 'mo')
 plt.legend()
 plt.show()
