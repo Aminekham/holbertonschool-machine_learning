@@ -18,7 +18,6 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes, activations,
     """
     the training and saving process
     """
-    tf.disable_eager_execution()
     x, y = create_placeholders(X_train.shape[1], Y_train.shape[1])
     y_pred = forward_prop(x, layer_sizes, activations)
     accuracy = calculate_accuracy(y, y_pred)
